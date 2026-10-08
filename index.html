@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f5f1">
+  <title>Form — Workout log</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Form home">
+        <span class="brand-mark" aria-hidden="true">F</span>
+        <span>form<span class="brand-period">.</span></span>
+      </a>
+
+      <div class="nav-label">WORKSPACE</div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-item active" href="#overview" aria-current="page">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>
+          Overview
+        </a>
+        <a class="nav-item" href="#workout-log">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4H5.5A1.5 1.5 0 0 0 4 5.5v14A1.5 1.5 0 0 0 5.5 21h13a1.5 1.5 0 0 0 1.5-1.5v-14A1.5 1.5 0 0 0 18.5 4H16"/><rect x="8" y="2.5" width="8" height="4" rx="1.5"/><path d="m8 13 2.5 2.5L16 10"/></svg>
+          Workout log
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-note">
+          <span class="note-icon" aria-hidden="true">✳</span>
+          <p>Small steps.<br><strong>Stronger every day.</strong></p>
+        </div>
+        <div class="profile">
+          <div class="avatar" aria-hidden="true">Y</div>
+          <div><strong>Your training</strong><span>Personal space</span></div>
+          <span class="profile-dots" aria-hidden="true">···</span>
+        </div>
+      </div>
+    </aside>
+
+    <main id="overview" class="main-content">
+      <header class="topbar">
+        <div class="breadcrumb">Workspace <span>/</span> <strong>Overview</strong></div>
+        <div class="topbar-right">
+          <span class="today-pill"><span class="online-dot"></span> YOUR TRAINING SPACE</span>
+          <div class="avatar small-avatar" aria-hidden="true">Y</div>
+        </div>
+      </header>
+
+      <section class="welcome-section">
+        <div>
+          <p class="eyebrow" id="today-date">YOUR TRAINING, YOUR PACE</p>
+          <h1>Make today <span>count.</span></h1>
+          <p class="welcome-copy">Every rep is progress. Keep showing up for yourself.</p>
+        </div>
+        <a class="primary-button" href="#add-workout">
+          <span aria-hidden="true">＋</span> Log a workout
+        </a>
+      </section>
+
+      <section class="stats-grid" aria-label="Workout statistics">
+        <article class="stat-card">
+          <div class="stat-top"><span class="stat-label">WORKOUTS THIS WEEK</span><span class="stat-icon mint" aria-hidden="true">↗</span></div>
+          <div class="stat-value" id="weekly-workouts">0</div>
+          <div class="stat-foot"><span class="stat-dot"></span><span>Keep your rhythm going</span></div>
+          <div class="mini-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top"><span class="stat-label">TOTAL VOLUME</span><span class="stat-icon lilac" aria-hidden="true">◈</span></div>
+          <div class="stat-value"><span id="total-volume">0</span><small> kg</small></div>
+          <div class="stat-foot"><span>Across all your logged sets</span></div>
+          <div class="volume-line" aria-hidden="true"><span></span></div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top"><span class="stat-label">MOVEMENTS LOGGED</span><span class="stat-icon peach" aria-hidden="true">✳</span></div>
+          <div class="stat-value" id="total-movements">0</div>
+          <div class="stat-foot"><span>One set at a time</span></div>
+          <div class="movement-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </article>
+      </section>
+
+      <div class="content-grid">
+        <section id="add-workout" class="panel workout-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">BUILD YOUR SESSION</p>
+              <h2>Log a workout</h2>
+            </div>
+            <span class="heading-mark" aria-hidden="true">✳</span>
+          </div>
+          <p class="panel-description">Add a movement and its working sets to your training log.</p>
+
+          <form id="workout-form">
+            <div class="field">
+              <label for="exercise">EXERCISE</label>
+              <input id="exercise" name="exercise" type="text" placeholder="e.g. Barbell squat" maxlength="60" required>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="sets">SETS</label>
+                <input id="sets" name="sets" type="number" min="1" max="99" placeholder="4" required>
+              </div>
+              <div class="field">
+                <label for="reps">REPS</label>
+                <input id="reps" name="reps" type="number" min="1" max="999" placeholder="8" required>
+              </div>
+              <div class="field">
+                <label for="weight">WEIGHT <span>(KG)</span></label>
+                <input id="weight" name="weight" type="number" min="0" max="9999" step="0.5" placeholder="60">
+              </div>
+            </div>
+            <div class="form-row bottom-row">
+              <div class="field date-field">
+                <label for="workout-date">DATE</label>
+                <input id="workout-date" name="date" type="date" required>
+              </div>
+              <button class="submit-button" type="submit">Add to log <span aria-hidden="true">↗</span></button>
+            </div>
+            <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="form-tip"><span aria-hidden="true">✦</span> You can leave weight empty for bodyweight exercises.</div>
+        </section>
+
+        <section id="workout-log" class="panel log-panel">
+          <div class="panel-heading log-heading">
+            <div>
+              <p class="eyebrow">SHOWING ALL ENTRIES</p>
+              <h2>Your workout log <span class="entry-count" id="entry-count">0</span></h2>
+            </div>
+            <span class="log-calendar" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M7.5 3v4M16.5 3v4M3.5 10h17"/></svg>
+            </span>
+          </div>
+          <div id="workout-list" class="workout-list" aria-live="polite"></div>
+          <div id="empty-state" class="empty-state">
+            <div class="empty-icon" aria-hidden="true">↗</div>
+            <h3>Your next workout starts here</h3>
+            <p>Log your first movement and it’ll show up here.</p>
+          </div>
+        </section>
+      </div>
+      <footer class="page-footer"><span>FORM <span class="brand-period">.</span></span><span>Built for showing up.</span></footer>
+    </main>
+  </div>
+</body>
+</html>
